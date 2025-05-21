@@ -77,14 +77,14 @@ urlpatterns = [
         DriverDeleteView.as_view(),
         name="driver-delete"
     ),
-    path('drivers/<int:pk>/update/',
+    path("drivers/<int:pk>/update/",
          UpdateView.as_view(
              model=Driver,
-             fields=['license_number'],
-             template_name='taxi/driver_form.html',
-             success_url='/drivers/'
+             fields=["license_number"],
+             template_name="taxi/driver_form.html",
+             success_url="/drivers/"
          ),
-         name='driver-update'),
+         name="driver-update"),
 ]
 
 app_name = "taxi"
