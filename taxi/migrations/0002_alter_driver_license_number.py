@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 help_text="Format: 3 uppercase letters followed by 5 digits.",
                 max_length=8,
                 unique=True,
-                validators=[taxi.validators.validate_license_number],
+                validators=["taxi.validators.validate_license_number"],
             ),
         ),
     ]
