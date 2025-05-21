@@ -1,5 +1,7 @@
 from django.urls import path
+from django.views.generic import UpdateView
 
+from .models import Driver
 from .views import (
     index,
     CarListView,
@@ -75,6 +77,14 @@ urlpatterns = [
         DriverDeleteView.as_view(),
         name="driver-delete"
     ),
+    path('drivers/<int:pk>/update/',
+         UpdateView.as_view(
+             model=Driver,
+             fields=['license_number'],
+             template_name='taxi/driver_form.html',
+             success_url='/drivers/'
+         ),
+         name='driver-update'),
 ]
 
 app_name = "taxi"
